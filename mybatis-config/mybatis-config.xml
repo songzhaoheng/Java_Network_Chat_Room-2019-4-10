@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <!--引入外部属性文件-->
+    <properties resource="db.properties"></properties>
+
+    <!--配置驼峰命名等-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"></setting>
+        <setting name="aggressiveLazyLoading" value="false"></setting>
+    </settings>
+
+    <!--配置别名-->
+    <typeAliases>
+        <typeAlias type="com.userInfo.UserInfo" alias="userInfo"></typeAlias>
+        <typeAlias type="com.userInfo.UserName" alias="userName"></typeAlias>
+        <typeAlias type="com.userInfo.UserPassName" alias="userPassName"></typeAlias>
+    </typeAliases>
+
+    <!--Base_DictInfo类配置别名-->
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--配置Mapper扫描-->
+    <mappers>
+        <mapper resource="com/mapper/LoginMapper.xml"></mapper>
+        <mapper resource="com/mapper/RegistMapper.xml"></mapper>
+        <mapper resource="com/mapper/AlterMapper.xml"></mapper>
+    </mappers>
+
+</configuration>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--登录查询Mapper-->
+<mapper namespace="com.mapper.LoginInterface">
+
+    <!--
+        //判断是否存在该用户
+        public UserInfo getUserInfoByUsername(String username);
+    -->
+
+
+    <select id="getUserInfoByUsername" resultType="userInfo">
+        select userid, username, userpass from userinfo
+        <where>
+            username = #{user_name}
+        </where>
+    </select>
+
+</mapper>
